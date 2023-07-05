@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>complete responsive adventure & tour website design</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+  <nav class="navbar">
+    <a href="#" class="logo"> <i class="fas fa-hiking"></i> Travelverse </a>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="app/packages.html" id="electronicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">packages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="app/services.html" id="fashionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="app/reviews.html" id="electronicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="app/shop.html" id="fashionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="app/blogs.html" id="electronicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="app/about.html" id="fashionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
+          </li>
+    </ul>      
+        <div>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {% if request.user.is_authenticated %}
+                <li class="nav-item dropdown mx-2">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{request.user.username|capfirst}}  
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                      <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                      <!-- <li><a class="dropdown-item" href="{% url 'orders' %}">Orders</a></li> -->
+                      <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Change Password</a></li>
+                      <li><a class="dropdown-item" href="{% url 'Logout' %}">Logout</a></li>
+                    </ul>
+                    {% else %}
+                    <li class="nav-item mx-2">
+                       <a href="{% url "Login" %}" class="nav-link text-white">Log in</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                    <a href="{% url 'customerregistration' %}" class="nav-link text-white">Registration</a>
+                    </li>
+                    {% endif %}
+                    </li>
+        </div>
+          
+        
+        <!-- <div id="nav-close" class="fas fa-times"></div>
+        <a href="home.html">home</a>
+        <a href="about.html">about</a>
+        <a href="shop.html">shop</a>
+        <a href="packages.html">packages</a>
+        <a href="reviews.html">reviews</a>
+        <a href="blogs.html">blogs</a>
+        <a href="services.html">services</a> -->
+  </nav>
+
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <a href="#" class="fas fa-shopping-cart"></a>
+        <div id="search-btn" class="fas fa-search"></div>
+    </div>
+
+</header>
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+</body>
+</html>
+
+<!-- header section ends -->
